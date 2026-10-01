@@ -14,6 +14,9 @@ The Week 2 lab is an introduction to PyTorch. Work through the three notebooks i
 
 ### 3. GPUs with PyTorch
 
+To keep editing local notebooks in VS Code while running on a Google GPU, follow
+the [official Colab extension setup](../docs/colab-vscode.md).
+
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/semtm0051/2026_27/blob/main/Week_02/Lab/Week_02_gpus_with_pytorch.ipynb)
 
 ## Lecture notes

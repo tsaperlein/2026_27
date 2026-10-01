@@ -2,6 +2,9 @@
 
 This repository includes one folder for each week with material added as we go along.
 
+For GPU notebooks, use the [VS Code + Google Colab setup](docs/colab-vscode.md)
+to execute local `.ipynb` files on a remote Colab GPU.
+
 ## Curriculum
 
 Here is the curriculum for the first five weeks.
