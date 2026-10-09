@@ -23,6 +23,8 @@ the [official Colab extension setup](../docs/colab-vscode.md).
 
 [Linear regression](Notes/Week_02%20-%20Linear%20Regression.pdf)
 
+[Solutions to the exercises](Notes/Solutions_to_the_exercises.pdf)
+
 ## Lecture slides
 
-[Linear regression — slides](Slides/Week_02%20-%20Slides.pptx)
+[Linear regression — slides](Slides/Week_02%20-%20Slides.pptx) · [PDF](Slides/Week_02%20-%20Slides.pdf)
