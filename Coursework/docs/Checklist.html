@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>SEMTM0051 Coursework — Checklist</title>
+<style>
+:root{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Arial,sans-serif;color:#172336;background:#f6f8fb}
+*{box-sizing:border-box}body{margin:0;padding:34px 16px}.container{max-width:760px;margin:auto;background:white;padding:32px 38px;border-radius:16px;box-shadow:0 12px 40px #1633550e}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#4b6889}h1{margin:8px 0 8px;font-size:27px;line-height:1.25}p{color:#546479;line-height:1.5}h2{font-size:17px;margin:30px 0 12px;color:#233b53}
+.meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:17px}.meta span{padding:7px 10px;border-radius:7px;background:#edf3f9;font-size:13px;color:#324f70}
+.progress{display:flex;align-items:center;justify-content:space-between;margin-top:24px;font-size:14px;font-weight:600}.bar{height:9px;border-radius:12px;background:#e9edf2;overflow:hidden;margin:8px 0 0}.fill{background:#206c9f;height:100%;width:0%;transition:width .2s}
+.task{border:1px solid #e5ebf0;border-radius:9px;padding:13px 14px;display:flex;gap:12px;align-items:flex-start;margin:8px 0;line-height:1.45;cursor:pointer}.task:hover{background:#f8fbff}.task:has(input:checked){background:#f2f8f6;border-color:#cbdfd4}.task input{width:18px;height:18px;accent-color:#197455;flex:none;margin:2px 0 0}.task input:checked+span{text-decoration:line-through;color:#607166}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}button{cursor:pointer;padding:10px 14px;border-radius:8px;border:1px solid #ccd6e0;background:#fff;color:#21384f;font-size:14px;font-weight:600}button.primary{background:#1b577f;color:white;border-color:#1b577f}button:hover{filter:brightness(.96)}button:focus-visible,input:focus-visible{outline:3px solid #7aadd2;outline-offset:3px}
+.note{font-size:12px;color:#647489;margin-top:22px;border-top:1px solid #e6ebf0;padding-top:16px}
+@media(max-width:540px){body{padding:10px}.container{padding:21px 18px}h1{font-size:23px}}
+@media print{body{padding:0;background:white}.container{padding:0;box-shadow:none}.actions{display:none}}
+</style>
+</head>
+<body><main class="container">
+<div class="eyebrow">University of Bristol · SEMTM0051</div>
+<h1>Coursework submission checklist</h1>
+<p>Tick each item when it is complete. Your selections are saved locally in this browser when supported. You can also export the current checklist as an editable Markdown file.</p>
+<div class="meta"><span>Deadline: 26 Nov 2026, 13:00</span><span>Exercises 1–7: ≤ 6 pages</span><span>Exercise 8: ≤ 3 more pages</span></div>
+<div class="progress"><span>Completion</span><span id="counter" aria-live="polite">0 / 10 checked</span></div>
+<div class="bar" role="progressbar" aria-label="Checklist completion" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0" id="bar"><div class="fill" id="fill"></div></div>
+<section><h2>Data and experiment rules</h2><label class="task"><input type="checkbox" data-id="train" /><span>After Exercise 1, every training run uses only the designated training set (xtr, ytr).</span></label>
+<label class="task"><input type="checkbox" data-id="test" /><span>I did not use test data to choose H, epochs, weight decay, or any other model setting.</span></label>
+<label class="task"><input type="checkbox" data-id="testonce" /><span>I evaluated my selected final model on the test set once, as required by Exercise 5.</span></label>
+<label class="task"><input type="checkbox" data-id="protocol" /><span>I followed each exercise’s exact data split, settings, and evaluation instructions.</span></label></section>
+<section><h2>Figures and explanations</h2><label class="task"><input type="checkbox" data-id="visuals" /><span>Every required figure and table is included, clearly labelled, and readable.</span></label>
+<label class="task"><input type="checkbox" data-id="reason" /><span>For each result, I explain why it happened—not just what the graph shows.</span></label>
+<label class="task"><input type="checkbox" data-id="fit" /><span>When discussing underfitting or overfitting, I explain what the model is fitting (or failing to fit) and why.</span></label></section>
+<section><h2>Exercise 8 and submission</h2><label class="task"><input type="checkbox" data-id="ex8" /><span>Exercise 8 asks a clear, original question and uses an appropriate experiment to answer it; the conclusion follows from the results.</span></label>
+<label class="task"><input type="checkbox" data-id="length" /><span>The PDF has no more than 6 pages for Exercises 1–7 and no more than 3 additional pages for Exercise 8 (9 total).</span></label>
+<label class="task"><input type="checkbox" data-id="code" /><span>I submit my code separately as one .py file or notebook, and it reproduces the required figures from data.csv.</span></label></section>
+<div class="actions"><button class="primary" id="export">Download current checklist (.md)</button><button id="reset">Untick all</button><button id="print" type="button">Print</button></div>
+<p class="note"><strong>Marking:</strong> Exercises 1–7 = 80 marks (about ⅓ experiments and presentation, ⅔ explanations); Exercise 8 = 20 marks (question, experiment design, conclusion and originality). For portable progress, export the checked Markdown file after updates.</p>
+</main>
+<script>
+(() => {
+ const key='semtm0051-coursework-checklist-2026-v1';
+ const sections=[{"section": "Data and experiment rules", "items": [{"id": "train", "label": "After Exercise 1, every training run uses only the designated training set (xtr, ytr)."}, {"id": "test", "label": "I did not use test data to choose H, epochs, weight decay, or any other model setting."}, {"id": "testonce", "label": "I evaluated my selected final model on the test set once, as required by Exercise 5."}, {"id": "protocol", "label": "I followed each exercise’s exact data split, settings, and evaluation instructions."}]}, {"section": "Figures and explanations", "items": [{"id": "visuals", "label": "Every required figure and table is included, clearly labelled, and readable."}, {"id": "reason", "label": "For each result, I explain why it happened—not just what the graph shows."}, {"id": "fit", "label": "When discussing underfitting or overfitting, I explain what the model is fitting (or failing to fit) and why."}]}, {"section": "Exercise 8 and submission", "items": [{"id": "ex8", "label": "Exercise 8 asks a clear, original question and uses an appropriate experiment to answer it; the conclusion follows from the results."}, {"id": "length", "label": "The PDF has no more than 6 pages for Exercises 1–7 and no more than 3 additional pages for Exercise 8 (9 total)."}, {"id": "code", "label": "I submit my code separately as one .py file or notebook, and it reproduces the required figures from data.csv."}]}];
+ const all=[...document.querySelectorAll('input[data-id]')];
+ let saved={};
+ try { saved=JSON.parse(localStorage.getItem(key)||'{}'); } catch(e) { /* local storage may be unavailable with file URLs */ }
+ all.forEach(input=>{ input.checked=!!saved[input.dataset.id]; input.addEventListener('change',update); });
+ function update(){
+   let state={}; for(const el of all) state[el.dataset.id]=el.checked;
+   try { localStorage.setItem(key,JSON.stringify(state)); } catch(e) { /* export remains available */ }
+   let n=all.filter(el=>el.checked).length;
+   document.getElementById('counter').textContent=n+' / '+all.length+' checked';
+   document.getElementById('fill').style.width=(100*n/all.length)+'%';
+   document.getElementById('bar').setAttribute('aria-valuenow',n);
+ }
+ document.getElementById('reset').addEventListener('click',()=>{if(confirm('Untick all checklist items?')){all.forEach(x=>x.checked=false);update();}});
+ document.getElementById('export').addEventListener('click',()=>{
+   const checked=new Map(all.map(el=>[el.dataset.id,el.checked]));
+   const lines=['# SEMTM0051 Coursework — Submission Checklist','','**Deadline:** 26 November 2026, 13:00',''];
+   sections.forEach(section=>{
+     lines.push('## '+section.section,'');
+     section.items.forEach(item=>lines.push('- ['+(checked.get(item.id)?'x':' ')+'] '+item.label));
+     lines.push('');
+   });
+   lines.push('**Marking reminder:** Exercises 1–7: 80 marks (~1/3 experiments/presentation; ~2/3 explanations). Exercise 8: 20 marks (question, design, conclusion, originality).','');
+   const blob=new Blob([lines.join('\n')],{type:'text/markdown;charset=utf-8'});
+   const link=document.createElement('a'); link.href=URL.createObjectURL(blob); link.download='SEMTM0051_coursework_checklist_progress.md'; link.click();
+   setTimeout(()=>URL.revokeObjectURL(link.href),1000);
+ });
+ document.getElementById('print').addEventListener('click',()=>window.print());
+ update();
+})();
+</script>
+</body></html>

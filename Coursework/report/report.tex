@@ -1,0 +1,116 @@
+% Build from this directory: latexmk -pdf -interaction=nonstopmode -halt-on-error report.tex
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=2.2cm,headheight=14pt]{geometry}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,bm}
+\usepackage{xcolor}
+\definecolor{accent}{HTML}{234D6B}
+\definecolor{charcoal}{HTML}{262C32}
+\definecolor{muted}{HTML}{555D65}
+\usepackage{graphicx}
+\usepackage{booktabs,tabularx}
+\usepackage{caption,subcaption}
+\captionsetup{font=small,labelfont=bf,skip=8pt}
+\usepackage[section]{placeins}
+\usepackage{titlesec}
+\titleformat{\section}{\large\bfseries\color{accent}}{Exercise \thesection\ ---}{0.45em}{}
+\titlespacing*{\section}{0pt}{14pt plus 2pt minus 1pt}{6pt}
+\titleformat{\subsection}{\normalsize\bfseries\color{charcoal}}{}{0pt}{}
+\titlespacing*{\subsection}{0pt}{12pt plus 2pt minus 1pt}{5pt}
+\usepackage{fancyhdr,lastpage,refcount}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={SEMTM0051 Coursework Report},pdfsubject={Underfitting, Overfitting and Held-out Data}}
+\usepackage[nameinlink,noabbrev]{cleveref}
+\crefname{section}{Exercise}{Exercises}
+\crefname{subsection}{section}{sections}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{muted}SEMTM0051\quad Foundations of AI}
+\fancyhead[R]{\small\color{muted}Coursework report}
+\fancyfoot[C]{\small\color{muted}\thepage\ / \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.3pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt plus 1pt minus 1pt}
+\setlength{\textfloatsep}{18pt plus 2pt minus 2pt}
+\setlength{\intextsep}{16pt plus 2pt minus 2pt}
+\setlength{\floatsep}{16pt plus 2pt minus 2pt}
+\renewcommand{\arraystretch}{1.15}
+\raggedbottom
+
+% Edit these fields. Check the unit's anonymous-marking rules before submission.
+\newcommand{\studentname}{Alexandros Tsaparas}
+\newcommand{\studentnumber}{2910885}
+
+% Each exercise is a numbered, cross-referenceable section.
+\newcommand{\exercise}[1]{\section{#1}}
+% Answers can contain several paragraphs, equations or floats, and can span pages.
+% Separate lettered answers more clearly than paragraphs within an answer.
+% addvspace merges adjacent answer gaps rather than doubling them.
+\newenvironment{answer}[1]{%
+  \par\addvspace{8pt plus 2pt minus 1pt}%
+  \noindent\textbf{(#1)}\enspace\ignorespaces
+}{\par}
+\newcommand{\placeholder}[1]{{\color{muted}\textit{[#1]}}}
+% Paths are relative to report/. Missing files remain obvious, compilable placeholders.
+% The optional width is relative to the current line (also inside a subfigure).
+\newcommand{\plotfile}[2][\linewidth]{%
+  \begin{minipage}{#1}\centering
+  \IfFileExists{#2}{%
+    \includegraphics[width=\linewidth,height=0.65\textheight,keepaspectratio]{#2}%
+  }{%
+    \begingroup\setlength{\fboxsep}{6pt}\color{muted}%
+    \fbox{\parbox[c][0.34\linewidth][c]{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{%
+      \centering\small Figure not yet supplied\par
+      \footnotesize\ttfamily\detokenize{#2}}}%
+    \endgroup
+  }%
+  \end{minipage}%
+}
+
+% Exercise 8 starts after all preceding floats have shipped. Its starting page
+% therefore counts every page used by Exercises 1--7, including the report heading.
+% Counts use the previous run's references: always rebuild until stable.
+\AtEndDocument{%
+  \ifnum\getpagerefnumber{budget:exercise-eight}>0\relax
+    \ifnum\getpagerefnumber{LastPage}>0\relax
+      \begingroup
+      \edef\mainpages{\number\numexpr\getpagerefnumber{budget:exercise-eight}-1\relax}%
+      \edef\investigationpages{\number\numexpr\getpagerefnumber{LastPage}-\getpagerefnumber{budget:exercise-eight}+1\relax}%
+      \typeout{PAGE BUDGET: Exercises 1--7 = \mainpages/6; Exercise 8 = \investigationpages/3; total = \getpagerefnumber{LastPage}/9.}%
+      \ifnum\mainpages>6 \PackageWarningNoLine{report}{Exercises 1--7 exceed six pages}\fi
+      \ifnum\investigationpages>3 \PackageWarningNoLine{report}{Exercise 8 exceeds three pages}\fi
+      \ifnum\getpagerefnumber{LastPage}>9 \PackageWarningNoLine{report}{Report exceeds nine pages}\fi
+      \endgroup
+    \fi
+  \else
+    \PackageWarningNoLine{report}{Page budget pending; rerun LaTeX}%
+  \fi
+}
+
+\begin{document}
+\color{charcoal}
+{\small\bfseries University of Bristol}\par
+{\large\bfseries SEMTM0051 --- Foundations of AI}\par
+{\Large\bfseries\color{accent}Underfitting, Overfitting and Held-out Data}\par
+{\small\studentname\hfill Student number: \studentnumber}\par
+\vspace{2pt}\hrule height 0.4pt\vspace{3pt}
+
+% Replace placeholders with your own work. Most lettered answers: 2--5 sentences.
+% The first seven exercises, including this heading, must fit within six pages.
+% Edit answers, figures and tables in the corresponding question file.
+\input{questions/question1}
+\input{questions/question2}
+\input{questions/question3}
+\input{questions/question4}
+\input{questions/question5}
+\input{questions/question6}
+\input{questions/question7}
+
+% Keep this boundary: flush all Exercises 1--7 floats before Exercise 8.
+\clearpage
+\input{questions/question8}
+\end{document}
